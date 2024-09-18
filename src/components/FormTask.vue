@@ -1,58 +1,61 @@
 <template>
-    <form @submit="onSubmit" class="grid items-start gap-4 px-4">
+    <Form :validation-schema="schemaTask" @submit="onSubmit" class="grid items-start gap-4 px-4">
+        <DialogHeader>
+            <DialogTitle class="text-xl font-bold">Cerate new task</DialogTitle>
+        </DialogHeader>
         <FormField v-slot="{ componentField }" name="title">
-            <FormIte class="grid gap-2">
+            <FormIte>
                 <FormLabel>Title</FormLabel>
+                    <FormMessage class="my-1"/>
                 <FormControl>
-                    <Input type="text" placeholder="Title task" v-bind="componentField" />
+                    <Input type="text" placeholder="Title task" v-bind="componentField"
+                        class="col-span-3 dark:bg-[#030712] ring-offset-background " />
                 </FormControl>
                 <FormDescription>
                     This is the title of your task.
                 </FormDescription>
-                <FormMessage />
             </FormIte>
         </FormField>
 
         <FormField v-slot="{ componentField }" name="description">
-            <FormIte class="grid gap-2">
+            <FormIte >
                 <FormLabel>Description</FormLabel>
+                    <FormMessage class="my-1"/>
                 <FormControl>
-                    <textarea placeholder="Description task" v-bind="componentField"></textarea>
+                    <Textarea placeholder="Task Description" v-bind="componentField"
+                    class="dark:bg-[#030712] col-span-3 "></Textarea>
                 </FormControl>
                 <FormDescription>
                     This is the description of your task.
                 </FormDescription>
-                <FormMessage />
             </FormIte>
         </FormField>
-        <Button type="submit">
-            Create task
-        </Button>
-    </form>
+        <DialogFooter>
+            <Button type="submit">
+                Create task
+            </Button>
+        </DialogFooter>
+    </Form>
 </template>
 
 <script setup>
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
+import { Form } from 'vee-validate';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, } from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { schemaTask } from '../schemas/validationTaskSchema';
+import Textarea from './ui/textarea/Textarea.vue';
+import { ref } from 'vue';
 
-import { Button } from '@/components/ui/button'
-import {
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { schema } from '@/schemas/validationTaskSchema'
+const title = ref('');
+const description = ref('');
 
+const onSubmit = () => {
+    console.table('Task created', title.value, description.value);
+    // Reset form fields
+    title.value = '';
+    description.value = '';
+}
 
-const form = useForm({
-    validationSchema: schema,
-})
-
-const onSubmit = form.handleSubmit((values) => {
-    console.log('Form submitted!', values)
-})
 </script>

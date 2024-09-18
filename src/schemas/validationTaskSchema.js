@@ -1,6 +1,6 @@
-import * as z from 'zod'
+import * as yup from "yup";
 
-export const schemaTask = toTypedSchema(z.object({
-    title: z.string().min(2).max(50).required(),
-    description: z.string().min(2).max(255),
-}))
+export const schemaTask = yup.object({
+  title: yup.string().min(2).max(50).required(),
+  description: yup.string().min(2).max(255),
+});
