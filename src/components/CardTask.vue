@@ -10,7 +10,9 @@
 
 <script setup>
 import ItemTask from "./ItemTask.vue";
+// import { useTaskStore } from "../stores/taskStore";
 
+// const taskStore = useTaskStore();
 </script>
 
 <style scoped></style>
