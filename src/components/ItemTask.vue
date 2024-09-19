@@ -1,7 +1,7 @@
 <template>
     <div class="relative flex flex-row-reverse has-[:checked]:bg-green-100 dark:border-gray-700 rounded-lg   border border-gray-200  transition hover:bg-gray-50 dark:hover:bg-gray-900 dark:has-[:checked]:bg-green-900/50 ">
         <span class=" top-0 right-0 p-2 text-gray-500 dark:text-gray-300 cursor-pointer  ">
-            <ButtonVue @click="taskStore.removeItem(id)" class="py-5 px-3 h-full" variant="destructive">
+            <ButtonVue @click="taskStore.removeItem(id)" class="py-5 px-3 " variant="destructive">
                 <Icon name="Trash2" size="20" color="white" />
             </ButtonVue>
         </span>
@@ -45,5 +45,4 @@ defineProps(
 )
 
 </script>
-.checked, input
 <style scoped></style>
