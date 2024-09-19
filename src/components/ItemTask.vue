@@ -15,9 +15,8 @@
             </div>
 
             <div>
-                <strong class="font-medium text-gray-900 dark:text-white"> {{ title }} </strong>
-
-                <p class="mt-1 text-pretty text-sm text-gray-700 dark:text-gray-200">
+                <strong class="font-medium text-gray-900 dark:text-white text-xl" :class="{ 'text-2xl' : !description}"> {{ title }} </strong>
+                <p v-show="description" class="mt-1 text-pretty text-base text-gray-700 dark:text-gray-400">
                     {{ description }}
                 </p>
             </div>
