@@ -4,11 +4,12 @@ import { ref } from "vue";
 export const useTaskStore = defineStore('Task', () => {
     const taskList = ref([]);
 
-    const saveTask = (titleInput, descriptionInput) => {
+    const saveTask = (values) => {
+        console.log();
         
         const newTask = {
-            title: titleInput,
-            description: descriptionInput,
+            title: values.title,
+            description: values.description,
             checked: false,
         };
         
