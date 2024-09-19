@@ -2,8 +2,8 @@
 
     <Dialog>
         <DialogTrigger class="w-full mb-2">
-            <Button class="w-full hover:bg-[rgba(67,239,90,0.8)]" variant="constructive">
-                <Icon name="PlusCircle" size="30" color="white" />
+            <Button class="w-full flex gap-2" variant="constructive">
+                <Icon name="PlusCircle" size="30" color="white" /> <span>Add new task</span>
             </Button>
         </DialogTrigger>
         <DialogContent class="sm:max-w-[425px] dark:bg-[#030712] dark:text-white ">
